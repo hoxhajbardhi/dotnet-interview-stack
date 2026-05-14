@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet --list-sdks)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet build *)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack status --short)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack status)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack diff)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack log --oneline -5)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack rm -r --cached src/Api/obj/ src/Application/obj/ src/Infrastructure/obj/ tests/Api.IntegrationTests/obj/ tests/Application.UnitTests/obj/)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack add .gitignore .editorconfig Directory.Build.props global.json DotnetInterviewStack.sln DotnetInterviewStack.slnx src/Api/Api.csproj src/Api/Program.cs src/Application/Application.csproj src/Infrastructure/Infrastructure.csproj tests/Api.IntegrationTests/Api.IntegrationTests.csproj tests/Application.UnitTests/Application.UnitTests.csproj)",
+      "Bash(git -C /Users/fatbardhhoxhaj/dotnet-interview-stack commit -m ' *)"
+    ]
+  }
+}
