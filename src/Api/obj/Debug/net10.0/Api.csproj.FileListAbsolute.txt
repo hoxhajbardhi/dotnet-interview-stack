@@ -35,3 +35,4 @@
 /Users/fatbardhhoxhaj/dotnet-interview-stack/src/Api/obj/Debug/net10.0/Api.pdb
 /Users/fatbardhhoxhaj/dotnet-interview-stack/src/Api/obj/Debug/net10.0/Api.genruntimeconfig.cache
 /Users/fatbardhhoxhaj/dotnet-interview-stack/src/Api/obj/Debug/net10.0/ref/Api.dll
+/Users/fatbardhhoxhaj/dotnet-interview-stack/src/Api/obj/Debug/net10.0/Api.sourcelink.json

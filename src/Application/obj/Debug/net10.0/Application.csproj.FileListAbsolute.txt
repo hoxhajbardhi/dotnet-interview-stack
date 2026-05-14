@@ -9,3 +9,4 @@
 /Users/fatbardhhoxhaj/dotnet-interview-stack/src/Application/obj/Debug/net10.0/refint/Application.dll
 /Users/fatbardhhoxhaj/dotnet-interview-stack/src/Application/obj/Debug/net10.0/Application.pdb
 /Users/fatbardhhoxhaj/dotnet-interview-stack/src/Application/obj/Debug/net10.0/ref/Application.dll
+/Users/fatbardhhoxhaj/dotnet-interview-stack/src/Application/obj/Debug/net10.0/Application.sourcelink.json

@@ -97,3 +97,4 @@
 /Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Application.UnitTests/obj/Debug/net10.0/Application.UnitTests.pdb
 /Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Application.UnitTests/obj/Debug/net10.0/Application.UnitTests.genruntimeconfig.cache
 /Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Application.UnitTests/obj/Debug/net10.0/ref/Application.UnitTests.dll
+/Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Application.UnitTests/obj/Debug/net10.0/Application.UnitTests.sourcelink.json

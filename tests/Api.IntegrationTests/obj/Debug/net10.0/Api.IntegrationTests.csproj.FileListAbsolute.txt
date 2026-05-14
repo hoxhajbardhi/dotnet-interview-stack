@@ -109,3 +109,4 @@
 /Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Api.IntegrationTests/obj/Debug/net10.0/Api.IntegrationTests.pdb
 /Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Api.IntegrationTests/obj/Debug/net10.0/Api.IntegrationTests.genruntimeconfig.cache
 /Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Api.IntegrationTests/obj/Debug/net10.0/ref/Api.IntegrationTests.dll
+/Users/fatbardhhoxhaj/dotnet-interview-stack/tests/Api.IntegrationTests/obj/Debug/net10.0/Api.IntegrationTests.sourcelink.json
