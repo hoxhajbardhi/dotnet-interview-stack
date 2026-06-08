@@ -1,12 +1,28 @@
 using Infrastructure;
 using Application; 
+using Api.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplication();
 
+// Configure Kestrel to listen on ports 5100 (HTTP) and 5101 (HTTPS) for local development
+builder.WebHost.ConfigureKestrel(options =>
+{
+    // HTTP
+    options.ListenAnyIP(5100);
+
+    // HTTPS with dev certificate
+    options.ListenAnyIP(5101, listenOptions =>
+    {
+        listenOptions.UseHttps();
+    });
+});
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -28,6 +44,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseExceptionHandler();
 app.UseAuthorization();
 
 app.MapHealthChecks("/health/live");

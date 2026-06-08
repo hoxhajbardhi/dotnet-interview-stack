@@ -21,4 +21,11 @@ public sealed class HealthController : ControllerBase
         var result = await _sender.Send(new PingQuery(), cancellationToken);
         return Ok(result);
     }
+
+//     [HttpGet("throw/{kind}")]
+// public async Task<ActionResult<string>> Throw(string kind, CancellationToken cancellationToken)
+// {
+//     var result = await _sender.Send(new ThrowTestQuery(kind), cancellationToken);
+//     return Ok(result);
+// }
 }

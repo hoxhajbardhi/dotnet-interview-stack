@@ -1,5 +1,6 @@
 using Application.Common.Interfaces;
 using Infrastructure.Persistence;
+using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,9 @@ public static class DependencyInjection
 
         services.AddScoped<IApplicationDbContext>(sp =>
             sp.GetRequiredService<ApplicationDbContext>());
+
+            services.AddSingleton<IPasswordHasher, BcryptPasswordHasher>();
+
 
         return services;
     }
