@@ -8,7 +8,7 @@ A production-grade .NET 10 starter demonstrating modern architecture patterns an
 
 Built in public as a learning project and portfolio piece exploring **Vertical Slice Architecture**, **CQRS**, **production-ready testing**, and (in later phases) **AI/LLM integration**.
 
-> 🚧 **Status:** Milestone 1 in progress — Foundation (target: 6 weeks)
+> 🚧 **Status:** Milestone 1 is underway — the foundation is now in place, including JWT authentication and refresh-token support.
 
 ---
 
@@ -52,12 +52,12 @@ Core architecture, authentication, validation, testing, containerization.
 - [x] Solution structure (Vertical Slice)
 - [x] EF Core + PostgreSQL setup with migrations
 - [x] Health checks (liveness + readiness)
-- [ ] MediatR pipeline behaviors (logging, validation)
-- [ ] FluentValidation integration
-- [ ] JWT authentication + refresh tokens
-- [ ] Global error handling (Problem Details, RFC 7807)
+- [x] MediatR pipeline behaviors (logging, validation)
+- [x] FluentValidation integration
+- [x] JWT authentication + refresh tokens
+- [x] Global error handling (Problem Details, RFC 7807)
 - [ ] API versioning + OpenAPI
-- [ ] Unit + integration test suite (Testcontainers)
+- [x] Unit + integration test suite (Testcontainers)
 - [ ] Dockerfile + docker-compose
 - [ ] GitHub Actions CI
 
@@ -102,13 +102,27 @@ dotnet ef database update \
 dotnet run --project src/Api
 ```
 
-The API starts on `http://localhost:5256`.
+The API starts on `http://localhost:5100` and `https://localhost:5101`.
 
 | Endpoint | Description |
 |---|---|
 | `GET /health/live` | Liveness — process is up |
 | `GET /health/ready` | Readiness — DB connection verified |
+| `POST /api/users/register` | Create a new user |
+| `POST /api/users/login` | Sign in and receive access + refresh tokens |
 | `GET /swagger` | Swagger UI (Development only) |
+
+Example login flow:
+
+```bash
+curl -X POST http://localhost:5100/api/users/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"demo@example.com","password":"P@ssw0rd!","firstName":"Demo","lastName":"User"}'
+
+curl -X POST http://localhost:5100/api/users/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"demo@example.com","password":"P@ssw0rd!"}'
+```
 
 ---
 
