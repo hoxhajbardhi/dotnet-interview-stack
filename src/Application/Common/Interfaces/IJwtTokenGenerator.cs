@@ -1,0 +1,9 @@
+using Application.Common.Entities;
+
+namespace Application.Common.Interfaces;
+
+public interface IJwtTokenGenerator
+{
+    string GenerateAccessToken(User user);
+    string GenerateRefreshToken();
+}

@@ -1,3 +1,4 @@
+using Application.Features.Users.Login;
 using Application.Features.Users.Register;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,5 +26,17 @@ public sealed class UsersController : ControllerBase
     {
         var response = await _sender.Send(command, cancellationToken);
         return CreatedAtAction(nameof(Register), new { id = response.Id }, response);
+    }
+
+
+    [HttpPost("login")]
+    [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<LoginUserResponse>> Login(
+        [FromBody] LoginUserCommand command,
+        CancellationToken cancellationToken)
+    {
+        var response = await _sender.Send(command, cancellationToken);
+        return Ok(response);
     }
 }
