@@ -1,12 +1,14 @@
 using Application.Features.Users.Login;
 using Application.Features.Users.Register;
+using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion(1)]
+[Route("api/v{version:apiVersion}/[controller]")]
 public sealed class UsersController : ControllerBase
 {
     private readonly ISender _sender;

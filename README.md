@@ -46,20 +46,18 @@ Each completed milestone ships with a write-up on [bardh.dev](https://bardh.dev)
 
 ## Roadmap
 
-### 🚧 Milestone 1 — Foundation *(in progress)*
-Core architecture, authentication, validation, testing, containerization.
+### ✅ Milestone 1 — Foundation *(completed)*
 
 - [x] Solution structure (Vertical Slice)
 - [x] EF Core + PostgreSQL setup with migrations
-- [x] Health checks (liveness + readiness)
 - [x] MediatR pipeline behaviors (logging, validation)
 - [x] FluentValidation integration
 - [x] JWT authentication + refresh tokens
 - [x] Global error handling (Problem Details, RFC 7807)
-- [ ] API versioning + OpenAPI
+- [x] API versioning + OpenAPI/Swagger
 - [x] Unit + integration test suite (Testcontainers)
-- [ ] Dockerfile + docker-compose
-- [ ] GitHub Actions CI
+- [x] Dockerfile multi-stage + docker-compose
+- [x] GitHub Actions CI
 
 ### ⏳ Milestone 2 — Production Patterns
 Background jobs, caching, observability, rate limiting.
@@ -84,25 +82,43 @@ LLM abstraction, streaming, vector DB, MCP server.
 
 ## Getting started
 
-**Prerequisites:** .NET 10 SDK, Docker, Docker Compose
+### Prerequisites
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+### Local development
 
 ```bash
+# 1. Clone
 git clone https://github.com/hoxhajbardhi/dotnet-interview-stack.git
 cd dotnet-interview-stack
 
-# Start PostgreSQL
-docker-compose up -d
+# 2. Start PostgreSQL
+docker compose up -d postgres
 
-# Apply migrations
-dotnet ef database update \
-  --project src/Infrastructure \
-  --startup-project src/Api
+# 3. Apply migrations
+dotnet ef database update --project src/Infrastructure --startup-project src/Api
 
-# Run the API
+# 4. Run
 dotnet run --project src/Api
 ```
 
-The API starts on `http://localhost:5100` and `https://localhost:5101`.
+API available at: `http://localhost:5000`
+Swagger UI: `http://localhost:5000/swagger`
+
+### Run tests
+
+```bash
+dotnet test
+```
+
+### Run with Docker (full stack)
+
+```bash
+docker compose up -d
+```
+
+API available at: `http://localhost:8080`
 
 | Endpoint | Description |
 |---|---|

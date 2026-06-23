@@ -1,11 +1,14 @@
 using Application.Features.Health;
+using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
 
+
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion(1)]
+[Route("api/v{version:apiVersion}/[controller]")]
 public sealed class HealthController : ControllerBase
 {
     private readonly ISender _sender;
