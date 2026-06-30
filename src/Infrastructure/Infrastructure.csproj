@@ -1,21 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <!-- TargetFramework inherited from Directory.Build.props -->
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <!-- Ensure any resx wildcard is removed locally in this project to avoid
-       MSB3552 in CI where no .resx files exist. -->
-  <ItemGroup>
-    <EmbeddedResource Remove="**/*.resx" />
   </ItemGroup>
 
   <ItemGroup>
