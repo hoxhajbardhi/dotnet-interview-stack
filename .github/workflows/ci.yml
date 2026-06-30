@@ -1,50 +1,50 @@
-# name: CI
+name: CI
 
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-# jobs:
-#   build-and-test:
-#     name: Build & Test
-#     runs-on: ubuntu-latest
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
 
-#     services:
-#       postgres:
-#         image: postgres:16-alpine
-#         env:
-#           POSTGRES_DB: interview_stack_test
-#           POSTGRES_USER: dev
-#           POSTGRES_PASSWORD: dev
-#         ports:
-#           - 5432:5432
-#         options: >-
-#           --health-cmd pg_isready
-#           --health-interval 5s
-#           --health-timeout 5s
-#           --health-retries 5
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: interview_stack_test
+          POSTGRES_USER: dev
+          POSTGRES_PASSWORD: dev
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
 
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-#       - name: Setup .NET
-#         uses: actions/setup-dotnet@v4
-#         with:
-#           dotnet-version: '10.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
 
-#       - name: Restore dependencies
-#         run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
-#       - name: Build
-#         run: dotnet build --no-restore --configuration Release
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
 
-#       - name: Run unit tests
-#         run: dotnet test tests/Application.UnitTests --no-build --configuration Release --verbosity normal
+      - name: Run unit tests
+        run: dotnet test tests/Application.UnitTests --no-build --configuration Release --verbosity normal
 
-#       - name: Run integration tests
-#         run: dotnet test tests/Api.IntegrationTests --no-build --configuration Release --verbosity normal
-#         env:
-#           ConnectionStrings__Database: Host=localhost;Port=5432;Database=interview_stack_test;Username=dev;Password=dev
+      - name: Run integration tests
+        run: dotnet test tests/Api.IntegrationTests --no-build --configuration Release --verbosity normal
+        env:
+          ConnectionStrings__Database: Host=localhost;Port=5432;Database=interview_stack_test;Username=dev;Password=dev
