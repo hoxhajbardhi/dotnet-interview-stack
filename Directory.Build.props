@@ -21,10 +21,6 @@
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
-  <!-- Prevent MSB3552: remove any invalid resx wildcard inclusions that may
-       be injected by SDK/targets or CI environments. -->
-  <ItemGroup>
-    <EmbeddedResource Remove="**/*.resx" />
-  </ItemGroup>
+
 
 </Project>
